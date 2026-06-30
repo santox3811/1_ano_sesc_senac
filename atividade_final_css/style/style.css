@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: 222;
+}
+ 
+header {
+    background-color: #222;
+    padding: 25px;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00bcd4;
+}
+
+main {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.secao {
+    margin: 40px 0;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+article {
+    padding: 20px;
+    margin: 15px 0;
+    text-align: center;
+    background-color: #fafafa;
+}
+/* BORDAS */
+
+.bordas article:nth-child(1) {
+    border: 5px solid #000;
+}
+ 
+.bordas article:nth-child(2) {
+    border: 5px outset #3498db;
+}
+ 
+.bordas article:nth-child(3) {
+    border: 5px inset #e67e22;
+}
+ 
+.bordas article:nth-child(4) {
+    border: 5px ridge #9b59b6;
+}
+ 
+.bordas article:nth-child(5) {
+    border: 5px groove #2ecc71;
+}
+ 
+.bordas article:nth-child(6) {
+    border: 5px double #e74c3c;
+}
+ 
+.bordas article:nth-child(7) {
+    border: 5px dotted #34495e;
+}
+ 
+.bordas article:nth-child(8) {
+    border: 5px dashed #f1c40f;
+}
+
+/* ESPESSURA DAS FONTES */
+
+.peso-100 {
+    font-weight: 100;
+}
+
+.peso-200 {
+     font-weight: 200;
+}
+
+.peso-300 {
+     font-weight: 300;
+}
+
+.peso-400 {
+     font-weight: 400;
+}
+
+.peso-500 {
+     font-weight: 500;
+}
+
+.peso-600 {
+     font-weight: 600;
+}
+
+.peso-700 {
+     font-weight: 700;
+}
+
+.peso-800 {
+     font-weight: 800;
+}
+
+.peso-900 {
+     font-weight: 900;
+}
+
+.peso-bold {
+     font-weight: bold;
+}
+
+.peso-normal {
+     font-weight: normal;
+}
+
+/* BACKGROUNDS */
+
+.backgrounds article {
+    min-height: 100px;
+    color: white;
+    font-weight: bold;
+}
+
+.backgrounds article:nth-child(1) {
+     background-color: #3498db;
+}
+
+.backgrounds article:nth-child(2) {
+    background: linear-gradient(to right, #8e44ad, #3498db);
+}
+
+.backgrounds article:nth-child(3) {
+    
+}
+
+.backgrounds article:nth-child(4) {
+    
+}
+
+.backgrounds article:nth-child(5) {
+    
+}
+
+.backgrounds article:nth-child(6) {
+    
+}
+
+.backgrounds article:nth-child(7) {
+    
+}

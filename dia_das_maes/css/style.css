@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+/* A tag <body> aplica estilo para todos os elementos do site */
+body {
+    background-color: #f4e5ec;
+}
+ 
+.hero-section {
+    display: flex;
+}
+ 
+.hero-section img {
+    width: 100%;
+    height: auto;
+}
+ 
+.sobre {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff5f5;
+    border-radius: 24px;
+    padding: 25px;
+}
+ 
+.sobre h1{
+    font-size: 64px;
+    font-weight: 600;
+    color: #AA2B69;
+    font-family: 'Arial Narrow Bold';
+    text-align: center;
+    margin-bottom: 15px;
+}
+ 
+.sobre p{
+    font-size: 24px;
+    color: #710124;
+    font-family: 'Arial Narrow Bold';
+    margin: 25px 10px;
+}
+ 
+.sobre h2{
+    font-size: 32px;
+    font-weight: 600;
+    color: #710124;
+    font-family: 'Arial Narrow Bold';
+    margin: 0 10px;
+    margin-bottom: 15px;
+}
+ 
+.sobre ul{
+    margin: 0 10px;
+}
+ 
+.sobre ul li{
+    margin: 10px 50px;
+    list-style: circle;
+    color: #710124;
+    font-size: 24px;
+    font-family: 'Arial Narrow Bold';
+}
+ 
+.foto{
+    width: 80%;
+    margin: 50px auto;
+    padding: 25px;
+}
+ 
+.foto figure img{
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+}
+ 
+.foto figure figcaption{
+    font-size: 16px;
+    color: #710124;
+    text-align: center;
+    font-family: 'Arial Narrow Bold';
+}
+ 
+.formulario {
+    width: 80%;
+    margin: 50px auto;
+}
+
+
+.formulario .form-cta{
+    width: 60%;
+    background-color: #fff5f5;
+    border-radius: 24px;
+    padding: 25px;
+}
