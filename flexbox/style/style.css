@@ -1,0 +1,84 @@
+/* ===========================================
+   Configurações gerais
+=========================================== */
+ 
+:root {
+    color-scheme: dark;
+    --background: #09090b;
+    --surface: #18181b;
+    --surface-soft: #27272a;
+    --surface-highlight: #3f3f46;
+    --border: #52525b;
+    --text: #f4f4f5;
+    --text-muted: #d4d4d6;
+    --primary: #6366f1;
+    --primary-hover: #818cf8;
+    --accent: #38bdf8;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --item: #0ea5e9;
+    --item-selected: #f97317;
+    --radius-small: 8px;
+    --radius-medium: 12px;
+    --radius-large: 18px;
+    --shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+}
+ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+ 
+body {
+    min-height: 100vh;
+    padding: clamp(16px, 4vw, 48px);
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left,
+            rgba(99, 102, 241, 0.16),
+            transparent 34rem),
+        var(--background);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+ 
+button,
+a,
+select {
+    wedkit-tap-highlight-color: transparent;
+}
+ 
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 3px;
+}  
+ 
+    /* ===================================================
+         Cabeçalho navegação
+    =================================================== */
+ 
+ .page-header {
+    max-width: 1200px;
+    margin: 0 auto 28px;
+    padding: clamp(28px, 6vw, 72px);
+    text-align: center;
+    background:
+        linear-gradient(
+            135deg, rgba(99, 102, 241, 0.28),
+             rgba(14, 165, 233, 0.12)
+         )
+         var(--surface);
+    border: 1px solid rgba(129, 140, 248, 0.35);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+ }
+ 

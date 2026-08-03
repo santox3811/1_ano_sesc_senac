@@ -1,0 +1,73 @@
+<!-- Define que o documento utiliza HTML5. Deve ser a primeira declaração do arquivo -->
+<!DOCTYPE html>
+<!-- A tag HTML envolve toda a página. lang="pt-BR" informa o idioma para navegadores e leitores de tela.-->
+<html lang="pt-BR">
+
+<!-- O head guarda configurações e informaçõesque não aparecem diretamente no conteúdo visual. -->
+<head>
+    <!-- Permite utilizar acentos, cedilha e outros caracteres especiais corretamente. -->
+    <meta charset="UTF-8">
+    <!-- faz o layout respeitar a largura real de celulares, tablets e computadores. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Descrição usada por mecanismos de buscas e no compartilhamento do link. -->
+    <meta name="description" content="Laboratório interativo para aprender e praticar as principais propriedades do CSS flexbox.">
+    <!-- Texto exibido na aba do navegador. -->
+    <title>Laboratório Flexbox</title>
+    <!-- Conecta o HTML ao arquivo CSS responsável pela aparência da página. -->
+     <link rel="stylesheet" href="style/style.css">
+</head>
+
+<!-- O body contém todo o conteúdo visivel da página. -->
+<body>
+    
+        <!-- ===================================================
+         CABEÇALHO PRINCIPAL
+         Apresenta o nome e a proposta do laboratório.
+    =================================================== -->
+    <header class="page-header">
+        <!-- Pequeno rótulo visual acima do título principal. -->
+        <span class="page-label">Laboratório interativo</span>
+        <!-- h1 é o titulo principal e deve representar o assunto da página. -->
+        <h1>Flexbox Playground</h1>
+        <p>
+            Clique nos valores, observe as mudanças e relacione cada resultado visual com o código CSS aplicado.
+        </p>
+    </header>
+
+     <!-- ===================================================
+         NAVEGAÇÃO INTERNA
+         Cada link aponta para o id de uma seção da página.
+         aria-label descreve o menu para tecnologias assistivas.
+    =================================================== -->
+
+    <nav class="property-navigation" aria-label="Navegação das propriedades do Flexbox">
+     <a href="#flex-direction">flex-direction</a>
+     <a href="#justify-content">justify-content</a>
+     <a href="#align-items">align-items</a>
+     <a href="#gap">gap</a>
+     <a href="#flex-wrap">flex-wrap</a>
+     <a href="#flex-flow">flex-flow</a>
+     <a href="#align-content">align-content</a>
+     <a href="#order">order</a>
+     <a href="#flex-grow">flex-grow</a>
+     <a href="#flex-shrink">flex-shrink</a>
+     <a href="#flex-basis">flex-basis</a>
+     <a href="#flex">flex</a>
+     <a href="#align-self">align-self</a>
+     <a href="#desafio">desafio</a>
+    </nav>
+
+    <!-- O main reúne o conteúdo principal do Laboratório. -->
+    <main>
+        <!-- ===================================================
+         PARTE 1 - PROPRIEDADES DO FLEX CONTAINER
+         Sâo aplicadas ao elemento pai, responsável por organizar os itens.
+    =================================================== -->
+        <header class="group-header">
+            <span>Parte 1</span>
+            <h2>Propriedades do Flex Container</h2>
+            <p>Estas propriedades são aplicadas ao elemento que contém os itens.</p>
+        </header>
+    </main>
+</body>
+</html>
