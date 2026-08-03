@@ -63,11 +63,46 @@
          PARTE 1 - PROPRIEDADES DO FLEX CONTAINER
          Sâo aplicadas ao elemento pai, responsável por organizar os itens.
     =================================================== -->
+
         <header class="group-header">
             <span>Parte 1</span>
             <h2>Propriedades do Flex Container</h2>
             <p>Estas propriedades são aplicadas ao elemento que contém os itens.</p>
         </header>
+ <!-- ===================================================
+         SEÇÃO: flex-direction
+         Define a direção do eixo primcipal e a ordem inicial dos itens.
+         O id permite acessar esta seção pelo menu de navegação.
+    =================================================== -->
+        <section class="demo" id="flex-direction">
+             <!--  Agrupa o título da propriedade e o botão que restaura o valor inicial. -->
+            <div class="demo-heading">
+                <div>
+                    <span class="property-type">Flex Container</span>
+                    <h2>flex-direction</h2>
+                </div>
+                <button type="button" class="reset-button" data-reset-section="direction">Restaurar padrão</button>
+            </div>
+
+            <p class="demo-introduction">
+                Define a direção do eixo principal e a ordem em que os itens são apresentados.
+            </p>
+
+            <!--
+                 Grupo de botões com os valores da propriedade.
+                 role="group" e aria-label ajudam leitores de tela.
+                 data-* guarda o valor que será lido pelo JavaScript.
+                 aria-pressed informa qual botão está ativo.
+            -->
+                 <div class="button" role="group" aria-label="Valores de flex-direction">
+                    <button type="button" data-direction="row" aria-pressed="true">row</button>
+                    <button type="button" data-direction="row-reverse" aria-pressed="false">row-reverse</button>
+                    <button type="button" data-direction="column" aria-pressed="false">column</button>
+                    <button type="button" data-direction="column-reverse" aria-pressed="false">column-reverse</button>
+                 </div>
+        </section>
+
     </main>
+        
 </body>
 </html>
