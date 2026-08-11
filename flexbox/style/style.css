@@ -10,7 +10,7 @@
     --surface-highlight: #3f3f46;
     --border: #52525b;
     --text: #f4f4f5;
-    --text-muted: #d4d4d6;
+    --text-muted: #d4d4d8;
     --primary: #6366f1;
     --primary-hover: #818cf8;
     --accent: #38bdf8;
@@ -18,14 +18,14 @@
     --warning: #f59e0b;
     --danger: #ef4444;
     --item: #0ea5e9;
-    --item-selected: #f97317;
+    --item-selected: #f97316;
     --radius-small: 8px;
     --radius-medium: 12px;
     --radius-large: 18px;
     --shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
 }
  
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -50,9 +50,14 @@ body {
 }
  
 button,
+select {
+    font: inherit;
+}
+ 
+button,
 a,
 select {
-    wedkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
  
 button:focus-visible,
@@ -60,13 +65,13 @@ a:focus-visible,
 select:focus-visible {
     outline: 3px solid #facc15;
     outline-offset: 3px;
-}  
+}
  
-    /* ===================================================
-         Cabeçalho navegação
-    =================================================== */
+/* ===========================================
+   Cabeçalho e navegação
+=========================================== */
  
- .page-header {
+.page-header {
     max-width: 1200px;
     margin: 0 auto 28px;
     padding: clamp(28px, 6vw, 72px);
@@ -74,16 +79,17 @@ select:focus-visible {
     background:
         linear-gradient(
             135deg, rgba(99, 102, 241, 0.28),
-             rgba(14, 165, 233, 0.12)
-         )
-         var(--surface);
+            rgba(14, 165, 233, 0.12)
+        ),
+        var(--surface);
     border: 1px solid rgba(129, 140, 248, 0.35);
     border-radius: 24px;
     box-shadow: var(--shadow);
- }
-  .page-label,
-  .propery-type,
-  .group-header span {
+}
+ 
+.page-label,
+.property-type,
+.group-header span {
     display: inline-flex;
     align-items: center;
     width: fit-content;
@@ -96,23 +102,23 @@ select:focus-visible {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-  }
-
-  .page-header h1 {
+}
+ 
+.page-header h1 {
     margin-top: 16px;
     font-size: clamp(2rem, 7vw, 4.5rem);
     line-height: 1;
     letter-spacing: -0.05em;
-  }
-
- .page-header p {
+}
+ 
+.page-header p {
     max-width: 760px;
     margin: 20px auto 0;
     color: var(--text-muted);
-    font-size: clamp(1rem, 2vw, 1.15rem); /*     1.15rem*/
- }
-
- .property-navigation {
+    font-size: clamp(1rem, 2vw, 1.15rem); /*      1.15rem*/
+}
+ 
+.property-navigation {
     position: sticky;
     top: 12px;
     z-index: 20;
@@ -128,9 +134,9 @@ select:focus-visible {
     border-radius: 14px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(14px);
- }
-
- .property-navigation a {
+}
+ 
+.property-navigation a {
     flex: 0 0 auto;
     padding: 8px 12px;
     color: var(--text-muted);
@@ -140,38 +146,460 @@ select:focus-visible {
     text-decoration: none;
     font-size: 0.85rem;
     transition: 0.2s;
- }
-
- .property-navigation a:hover {
+}
+ 
+.property-navigation a:hover {
     color: white;
     background-color: var(--primary);
     border-color: var(--primary-hover);
- }
-
- /* ===================================================
-         GRUPOS E SEÇÕES
-    =================================================== */
-
-    main {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .group-header {
-        margin: 64px 0 22px;
-        padding: clamp(20px, 4vw, 32px);
-        background-color: rgba(24, 24, 27, 0.76);
-        border-left: 5px solid var(--accent);
-        border-radius: 0 var(--radius-large) var(--radius-large) 0;
-      }
-    
-      .group-header h2 {
-        margin-top: 12px;
-        color: var(--text);
-        font-size: clamp(1.6rem, 4vw, 2.5rem);
-      }
-
-      .group-header p {
-        margin-top: 8px;
-        color: var(--text-muted);
-      }
+}
+ 
+/* ===========================================
+   Grupos e seções
+=========================================== */
+ 
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.group-header {
+    margin: 64px 0 22px;
+    padding: clamp(20px, 4vw, 32px);
+    background-color: rgba(24, 24, 27, 0.76);
+    border-left: 5px solid var(--accent);
+    border-radius: 0 var(--radius-large) var(--radius-large) 0;
+}
+ 
+.group-header h2 {
+    margin-top: 12px;
+    color: var(--text);
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+ 
+.group-header p {
+    margin-top: 8px;
+    color: var(--text-muted);
+}
+ 
+/* ==========================================================
+   CARD DE DEMONSTRAÇÃO
+ 
+   Cada propriedade é apresentada dentro de um card separado.
+ 
+   overflow: hidden impede que elementos ultrapassem as bordas.
+========================================================== */
+ 
+.demo {
+    margin-bottom: 36px;
+    padding: clamp(20px, 4vw, 34px);
+    overflow: hidden;
+    background-color: rgba(24, 24, 27, 0.92);
+    border: 1px solid var(--surface-highlight);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow);
+}
+ 
+/* ==========================================================
+   CABEÇALHO INTERNO DA DEMONSTRAÇÃO
+ 
+   Utiliza Flexbox para separar o título da propriedade e
+   o botão de restauração.
+========================================================== */
+ 
+.demo-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+ 
+.demo-heading h2 {
+    margin-top: 8px;
+    color: var(--accent);
+    font-size: clamp(1.55rem, 4vw, 2.2rem);
+}
+ 
+.item-property {
+    color: #fed7aa;
+    background-color: rgba(249, 115, 22, 0.14);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+ 
+.challenge-label {
+    color: #bbf7d0;
+    background-color: rgba(34, 197, 94, 0.14);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+ 
+.demo-introduction {
+    max-width: 850px;
+    margin: 18px 0 22px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+ 
+.demo-introduction strong {
+    color: white;
+}
+ 
+/* ==========================================================
+   DESCRIÇÃO DINÂMICA
+ 
+   Este texto será atualizado pelo JavaScript quando o aluno
+   selecionar outro valor da propriedade.
+========================================================== */
+ 
+.property-description {
+    min-height: 52px;
+    margin: 0 0 18px;
+    padding: 12px 16px;
+    color: #e0f2fe;
+    background-color: rgba(14, 165, 233, 0.09);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 var(--radius-small) var(--radius-small);
+}
+ 
+/* ==========================================================
+   BOTÕES E CONTROLES
+========================================================== */
+ 
+/* Organiza os botões em linha e permite quebra automática. */
+ 
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+ 
+/* ==========================================================
+   BOTÃO PADRÃO
+ 
+   min-height: 44px cria uma área confortável para clique
+   também em dispositivos com tela sensível ao toque.
+========================================================== */
+ 
+button {
+    min-height: 44px;
+    padding: 10px 17px;
+    color: white;
+    background-color: var(--primary);
+    border: 1px solid transparent;
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-weight: 700;
+    transition:
+        transform 0.2s,
+        background-color 0.2s,
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+ 
+button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+ 
+/* ==========================================================
+   BOTÃO ATIVO
+ 
+   A classe active é controlada pelo JavaScript e mostra qual
+   valor CSS está selecionado.
+========================================================== */
+ 
+button.active {
+    color: #052e16;
+    background-color: var(--success);
+    border-color: #86efac;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.14);
+}
+ 
+.reset-button,
+.copy-button {
+    color: var(--text-muted);
+    background-color: var(--surface-soft);
+    border-color: var(--border);
+    font-weight: 600;
+}
+ 
+.reset-button:hover,
+.copy-button:hover {
+    color: white;
+    background-color: var(--surface-highlight);
+}
+ 
+/*
+   Esta classe é adicionada temporariamente pelo JavaScript
+   após o código CSS ser copiado.
+*/
+ 
+.copy-button.copy-success {
+    color: #052e16;
+    background-color: var(--success);
+    border-color: #86efac;
+}
+ 
+.compact-buttons {
+    margin-bottom: 0;
+}
+ 
+/* ==========================================================
+   CONTROLE DA DEMONSTRAÇÃO flex-shrink
+ 
+   flex-shrink só é percebido quando falta espaço.
+ 
+   Por isso esta área permite alterar a largura do container.
+========================================================== */
+ 
+.size-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    padding: 14px;
+    background-color: var(--surface-soft);
+    border-radius: var(--radius-medium);
+}
+ 
+.size-controls span {
+    color: var(--text-muted);
+    font-weight: 700;
+}
+ 
+/* ==========================================================
+   CONTAINERS E ITENS
+========================================================== */
+ 
+/* ==========================================================
+   FLEX CONTAINER BASE
+ 
+   Esta é a classe principal do laboratório.
+ 
+   display: flex ativa o Flexbox.
+   flex-direction: row define a direção inicial.
+   gap cria espaço entre os Flex Items.
+ 
+   position: relative permite posicionar rótulos e indicadores
+   dentro do container.
+ 
+   overflow: auto cria rolagem quando necessário.
+========================================================== */
+ 
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 350px;
+    gap: 10px;
+    padding: 46px 20px 20px;
+    overflow: auto;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        var(--surface-highlight);
+    background-size: 32px 32px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+    transition: 0.35s;
+}
+ 
+/* ==========================================================
+   RÓTULO DO CONTAINER
+ 
+   position: absolute posiciona o rótulo sobre a área visual.
+ 
+   pointer-events: none impede que ele bloqueie cliques.
+========================================================== */
+ 
+.container-label {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    z-index: 5;
+    padding: 4px 8px;
+    color: #d4d4d8;
+    background-color: rgba(9, 9, 11, 0.8);
+    border-radius: 5px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.72rem;
+    pointer-events: none;
+}
+ 
+/* ==========================================================
+   FLEX ITEM BASE
+ 
+   Cada card numerado representa um Flex Item.
+ 
+   O próprio item também usa display: flex para centralizar
+   seu conteúdo interno.
+ 
+   flex: 0 1 auto significa:
+   - não crescer
+   - poder encolher
+   - usar tamanho automático como base
+========================================================== */
+ 
+.item {
+    position: relative;
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    color: white;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.16), transparent 50%),
+        var(--item);
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    border-radius: 12px;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    font-size: 2rem;
+    font-weight: 800;
+    transition: 0.35s;
+}
+ 
+/* ==========================================================
+   PSEUDOELEMENTO ::before
+ 
+   Cria o texto "item" sem adicionar outro elemento no HTML.
+ 
+   É usado apenas como elemento visual.
+========================================================== */
+ 
+.item::before {
+    content: "item";
+    position: absolute;
+    top: 7px;
+    left: 8px;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.72;
+}
+ 
+.item small {
+    position: absolute;
+    bottom: 8px;
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+ 
+/* Destaca visualmente o item manipulado na demonstração. */
+ 
+.item-selected {
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.18), transparent 50%),
+        var(--item-selected);
+    border-color: #fdba74;
+}
+ 
+/* ==========================================================
+    INDICADORES DE EIXO
+ 
+    Mostram o eixo principal e o eixo secundário do flexbox.
+========================================================== */
+ 
+.axis {
+    position: absolute;
+    z-index: 4;
+    padding: 4px 8px;
+    color: #f4f4f5;
+    background-color: rgba(9, 9, 11, 0.82);
+    border-radius: 5px;
+    font-size: 0.68rem;
+    pointer-events: none;
+}
+ 
+.axis-main {
+    right: 12px;
+    bottom: 8px;
+}
+ 
+/*
+    writing-mode altera a direção da escrita para apresentar
+    o rótulo verticalmente.
+*/
+ 
+.axis-cross {
+    top: 48px;
+    right: 8px;
+    writing-mode: vertical-rl;
+}
+ 
+/* ==========================================================
+    PAINEL DE CÓDIGO
+========================================================== */
+ 
+/* ==========================================================
+    ESTRUTURA DO PAINEL
+ 
+    CSS grid cria duas colunas:
+    - código ocupando o espaço disponível
+    - botão de copiar com largura automática
+========================================================== */
+ 
+.code-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: end;
+    margin-top: 22px;
+}
+ 
+/* ==========================================================
+    BLOCO DE CÓDIGO
+ 
+    Usa fonte monoespaçada para melhorar a leitura.
+ 
+    overflow-x: auto adiciona rolagem quando o conteúdo não
+    cabe em telas pequenas.
+========================================================== */
+ 
+.code {
+    position: relative;
+    min-width: 0;
+    padding: 42px 20px 20px;
+    overflow-x: auto;
+    color: #e4e4e7;
+    background-color: #050506;
+    border: 1px solid #3f3f46;
+    border-radius: 10px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    line-height: 1.65;
+}
+ 
+/* Cria o rótulo "CSS" sem precisar adicioná-lo no HTML. */
+ 
+.code::before {
+    content: "CSS";
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    color: #a1a1aa;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+ 
+.code strong {
+    color: var(--success);
+}
+ 
+/* ==========================================================
+   CONFIGURAÇÕES ESPECÍFICAS DAS DEMONSTRAÇÕES
+ 
+   A classe .container define o comportamento base.
+ 
+   As classes abaixo alteram apenas o necessário para tornar
+   cada propriedade visível e didática.
+========================================================== */
+ 
